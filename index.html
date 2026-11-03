@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacked by Oksa Exploit</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #020205;
+            color: #00ffcc;
+            font-family: 'Share Tech Mono', monospace;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Efek Canvas Matrix */
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.2;
+            pointer-events: none;
+        }
+
+        /* Kotak Utama / Glassmorphism */
+        .card {
+            position: relative;
+            z-index: 2;
+            background: rgba(0, 10, 20, 0.75);
+            border: 1px solid #00ffcc;
+            padding: 40px;
+            width: 90%;
+            max-width: 650px;
+            box-shadow: 0 0 40px rgba(0, 255, 204, 0.25), inset 0 0 15px rgba(0, 255, 204, 0.1);
+            border-radius: 8px;
+            backdrop-filter: blur(5px);
+            text-align: center;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* Badge Status */
+        .badge {
+            display: inline-block;
+            background: rgba(0, 255, 204, 0.1);
+            border: 1px dashed #00ffcc;
+            padding: 5px 15px;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            color: #00ffcc;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+
+        /* Judul Utama */
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: #ffffff;
+            letter-spacing: 4px;
+            text-shadow: 0 0 15px #00ffcc, 0 0 30px rgba(0, 255, 204, 0.5);
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #ff3366;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            font-weight: bold;
+            text-shadow: 0 0 8px rgba(255, 51, 102, 0.6);
+        }
+
+        /* Garis Neon */
+        .glow-line {
+            height: 2px;
+            width: 100%;
+            background: linear-gradient(90deg, transparent, #00ffcc, transparent);
+            margin: 20px 0;
+        }
+
+        /* Pesan Deskripsi */
+        .message {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #c5c5c5;
+            margin-bottom: 30px;
+        }
+
+        .message span {
+            color: #00ffcc;
+        }
+
+        /* Tombol Interaktif */
+        .btn-action {
+            background: transparent;
+            color: #00ffcc;
+            border: 2px solid #00ffcc;
+            padding: 10px 25px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 255, 204, 0.2);
+            border-radius: 4px;
+        }
+
+        .btn-action:hover {
+            background: #00ffcc;
+            color: #020205;
+            box-shadow: 0 0 25px #00ffcc;
+            transform: translateY(-2px);
+        }
+
+        /* Footer Crew */
+        .footer {
+            margin-top: 25px;
+            font-size: 0.85rem;
+            color: #668899;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Animasi Latar Belakang Digital Rain -->
+    <canvas id="matrix"></canvas>
+
+    <div class="card">
+        <div class="badge">[ SYSTEM BREACHED ]</div>
+        <h1>OKSA EXPLOIT</h1>
+        <div class="subtitle">Security System Failure</div>
+        
+        <div class="glow-line"></div>
+        
+        <p class="message">
+            Your cybersecurity defense has been bypassed completely.<br>
+            Nothing is secure in this digital era. <span>Patch your system vulnerabilities</span> before someone else exploits them maliciously.
+        </p>
+
+        <button class="btn-action" onclick="triggerAlert()">[ INITIALIZE SYSTEM ]</button>
+
+        <div class="footer">
+            &mdash; Oksa Exploit Cyber Team &mdash;
+        </div>
+    </div>
+
+    <script>
+        // Skrip Canvas Matrix Latar Belakang
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const chars = '01OKSAEXPLOITABCDEFGHIJKLMNOPQRSTUVWXYZ@#$%&*';
+        const fontSize = 14;
+        const columns = canvas.width / fontSize;
+        const drops = [];
+
+        for (let x = 0; x < columns; x++) {
+            drops[x] = 1;
+        }
+
+        function draw() {
+            ctx.fillStyle = 'rgba(2, 2, 5, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#00ffcc';
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = chars.charAt(Math.floor(Math.random() * chars.length));
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        setInterval(draw, 35);
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // Interaksi Tombol
+        function triggerAlert() {
+            alert('Oksa Exploit: Access Granted. Security assessment complete.');
+        }
+    </script>
+</body>
+</html>
